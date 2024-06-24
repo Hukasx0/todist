@@ -28,4 +28,4 @@ openssl rand -base64 32
 ## License
 2024 Hubert Kasperek
 
-The project is available under the [MIT License](blob/main/LICENSE)
+The project is available under the [MIT License](LICENSE)
