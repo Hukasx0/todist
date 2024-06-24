@@ -61,14 +61,12 @@ export function KanbanBoard() {
   const [tasks, setTasks] = useState<Task[]>(todos);
 
   useEffect(() => {
-    if (todos.length === 0) return;
-    setTasks(todos);
-    refetchTasks();
+    if (todos) {
+      setTasks(todos);
+    }
+  }, [todos]);
 
-    return () => {
-      
-    };
-  }, [todos, refetchTasks]);
+
   function saveLayout() {
     console.log(tasks);
     updateLayout.mutate(
