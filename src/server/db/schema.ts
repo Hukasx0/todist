@@ -5,7 +5,6 @@ import {
   pgEnum,
   pgTableCreator,
   primaryKey,
-  serial,
   text,
   timestamp,
   varchar,

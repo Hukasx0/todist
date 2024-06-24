@@ -8,7 +8,7 @@ const features = [
     description: "Open source under the MIT license.",
     href: "https://github.com/Hukasx0/todist",
     cta: "See on GitHub",
-    background: <img className="absolute -right-20 -top-20 opacity-60" />,
+    background: <img className="absolute -right-20 -top-20 opacity-60" alt="" />,
     className: "lg:row-start-1 lg:row-end-4 lg:col-start-2 lg:col-end-3",
   },
   {
@@ -17,7 +17,7 @@ const features = [
     description: "Your todos are stored in a database.",
     href: "https://github.com/Hukasx0/todist",
     cta: "See on GitHub",
-    background: <img className="absolute -right-20 -top-20 opacity-60" />,
+    background: <img className="absolute -right-20 -top-20 opacity-60" alt="" />,
     className: "lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3",
   },
   {
@@ -26,7 +26,7 @@ const features = [
     description: "Organize your tasks in a kanban board.",
     href: "https://github.com/Hukasx0/todist",
     cta: "See on GitHub",
-    background: <img className="absolute -right-20 -top-20 opacity-60" />,
+    background: <img className="absolute -right-20 -top-20 opacity-60" alt="" />,
     className: "lg:col-start-1 lg:col-end-2 lg:row-start-3 lg:row-end-4",
   },
   {
@@ -35,7 +35,7 @@ const features = [
     description: "",
     href: "https://github.com/Hukasx0/todist",
     cta: "See on GitHub",
-    background: <img className="absolute -right-20 -top-20 opacity-60" />,
+    background: <img className="absolute -right-20 -top-20 opacity-60" alt="" />,
     className: "lg:col-start-3 lg:col-end-3 lg:row-start-1 lg:row-end-2",
   },
   {
@@ -45,7 +45,7 @@ const features = [
       "Your todos are private and only visible to you.",
     href: "https://github.com/Hukasx0/todist",
     cta: "See on GitHub",
-    background: <img className="absolute -right-20 -top-20 opacity-60" />,
+    background: <img className="absolute -right-20 -top-20 opacity-60" alt="" />,
     className: "lg:col-start-3 lg:col-end-3 lg:row-start-2 lg:row-end-4",
   },
 ];

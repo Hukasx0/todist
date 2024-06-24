@@ -51,7 +51,7 @@ const defaultCols = [
 export type ColumnId = (typeof defaultCols)[number]["id"];
 
 export function KanbanBoard() {
-  const { todos, refetchTasks } = useTasks();
+  const { todos } = useTasks();
   const [columns, setColumns] = useState<Column[]>(defaultCols);
   const pickedUpTaskColumn = useRef<ColumnId | null>(null);
   const columnsId = useMemo(() => columns.map((col) => col.id), [columns]);

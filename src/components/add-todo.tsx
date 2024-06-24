@@ -10,8 +10,8 @@ import { Input } from "./ui/input";
 import React from "react";
 import { Plus } from "lucide-react";
 
-import { api } from "@/trpc/react";
 import { useTasks } from "@/context/tasks-context";
+import { toast } from "sonner";
 
 const formSchema = z.object({
     content: z.string().min(1, { message: "Content is required" }).max(128, { message: "Content is too long" }),
@@ -30,20 +30,18 @@ export default function AddTodo() {
 
   const { addTask } = useTasks();
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    addTask({ content: values.content, columnId: "todo" })
-      .then(() => {
-        setIsOpen(false);
-      });
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    try {
+      await addTask({ content: values.content, columnId: "todo" });
+      setIsOpen(false);
+    } catch (error) {
+      toast.error(`Error adding task: ${error}`);
+    }
     form.reset();
   }
 
   const handleOpen = () => {
     setIsOpen(true);
-  };
-
-  const handleClose = () => {
-    setIsOpen(false);
   };
 
   return (

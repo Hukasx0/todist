@@ -6,14 +6,12 @@ import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "./ui/dropdown-menu";
 import { Button } from "./ui/button";
 import Link from "next/link";
-import React, { useEffect } from "react";
+import React from "react";
 import { useMediaQuery } from "@/hooks/use-media-query";
 
 import {
   Drawer,
-  DrawerClose,
   DrawerContent,
-  DrawerDescription,
   DrawerFooter,
   DrawerHeader,
   DrawerTitle,
@@ -53,12 +51,12 @@ export function Navbar({ user }: NavbarProps) {
                 <DropdownMenu>
                   <DropdownMenuTrigger>
                     <Avatar className="h-8 w-8">
-                      <AvatarImage src={user?.image || undefined} />
+                      <AvatarImage src={user?.image ?? undefined} />
                       <AvatarFallback>User</AvatarFallback>
                     </Avatar>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent>
-                    <DropdownMenuLabel>Signed in as <span className="font-bold">{user?.name || "User"}</span></DropdownMenuLabel>
+                    <DropdownMenuLabel>Signed in as <span className="font-bold">{user?.name ?? "User"}</span></DropdownMenuLabel>
                     <DropdownMenuSeparator />
                     <DropdownMenuItem onClick={() => window.location.href = "/api/auth/signout"} className="cursor-pointer">Sign out</DropdownMenuItem>
                   </DropdownMenuContent>
@@ -70,13 +68,13 @@ export function Navbar({ user }: NavbarProps) {
                 <Drawer>
                 <DrawerTrigger>
                   <Avatar className="h-8 w-8">
-                    <AvatarImage src={user?.image || undefined} />
+                    <AvatarImage src={user?.image ?? undefined} />
                     <AvatarFallback>User</AvatarFallback>
                   </Avatar>
                 </DrawerTrigger>
                 <DrawerContent>
                   <DrawerHeader>
-                    <DrawerTitle>Signed in as <span className="font-bold">{user?.name || "User"}</span></DrawerTitle>
+                    <DrawerTitle>Signed in as <span className="font-bold">{user?.name ?? "User"}</span></DrawerTitle>
                   </DrawerHeader>
                   <DrawerFooter>
                     <Link href={"/api/auth/signout"}><Button variant={"outline"} className="w-full">Sign out</Button></Link>

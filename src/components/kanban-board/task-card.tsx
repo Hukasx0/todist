@@ -8,7 +8,6 @@ import { GripVertical, X } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { ColumnId } from "./kanban-board";
 import { Credenza, CredenzaBody, CredenzaClose, CredenzaContent, CredenzaFooter, CredenzaHeader, CredenzaTitle, CredenzaTrigger } from "../ui/credenza";
-import { api } from "@/trpc/react";
 import { useTasks } from "@/context/tasks-context";
 
 export interface Task {
@@ -90,7 +89,7 @@ export function TaskCard({ task, isOverlay }: TaskCardProps) {
             <CredenzaTrigger asChild>
                 <Button variant={"ghost"} 
                   className="p-1 text-secondary-foreground/50 h-auto cursor-grab"
-                  onClick={() => {}}>
+                  >
                   <X className="h-5 w-5" />
                 </Button>
             </CredenzaTrigger>

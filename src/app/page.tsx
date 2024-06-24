@@ -1,5 +1,4 @@
 import { getServerAuthSession } from "@/server/auth";
-import { ThemeToggle } from "@/components/theme-toggle";
 import { KanbanBoard } from "@/components/kanban-board/kanban-board";
 import { Navbar } from "@/components/navbar";
 import AddTodo from "@/components/add-todo";
