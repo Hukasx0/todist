@@ -6,6 +6,8 @@ import { TRPCReactProvider } from "@/trpc/react";
 
 import { Toaster } from "@/components/ui/toaster"
 
+import { Toaster as Sonner } from "@/components/ui/sonner"
+
 import { ThemeProvider } from "@/components/theme-provider"
 
 export const metadata = {
@@ -31,6 +33,7 @@ export default function RootLayout({
             <div vaul-drawer-wrapper="" className="bg-background">
               {children}
               <Toaster />
+              <Sonner richColors />
             </div>
           </ThemeProvider>  
           </TRPCReactProvider>

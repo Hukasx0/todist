@@ -4,6 +4,8 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { api } from "@/trpc/react";
 import { type Task } from "../components/kanban-board/task-card";
 
+import { toast } from "sonner"
+
 interface TasksContextProps {
   todos: Task[];
   refetchTasks: () => void;
@@ -31,17 +33,29 @@ export const TasksProvider = ({ children }: { children: React.ReactNode }) => {
   }, [fetchTasks.data]);
 
   const refetchTasks = () => {
-    fetchTasks.refetch();
+    fetchTasks.refetch().catch(
+      (error) => toast.error(`Error refetching tasks: ${error}`)
+    );
   };
 
   const addTask = async (task: Omit<Task, "id">) => {
-    await addTaskMutation.mutateAsync(task);
-    refetchTasks();
+    try {
+      await addTaskMutation.mutateAsync(task);
+      refetchTasks();
+      toast.success("Task added successfully");
+    } catch (error) {
+      toast.error(`Error adding task: ${error}`);
+    }
   };
 
   const deleteTask = async (id: string) => {
-    await deleteTaskMutation.mutateAsync({ id });
-    refetchTasks();
+    try {
+      await deleteTaskMutation.mutateAsync({ id });
+      refetchTasks();
+      toast.success("Task deleted successfully");
+    } catch (error) {
+      toast.error(`Error deleting task: ${error}`);
+    }
   };
 
   return (

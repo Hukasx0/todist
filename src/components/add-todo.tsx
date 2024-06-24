@@ -35,6 +35,7 @@ export default function AddTodo() {
       .then(() => {
         setIsOpen(false);
       });
+    form.reset();
   }
 
   const handleOpen = () => {

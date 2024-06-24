@@ -151,6 +151,14 @@ export function KanbanBoard() {
             taskPosition + 1
           } of ${tasksInColumn.length}`;
         }
+        toast({
+          title: "Unsaved changes",
+          description: "You have unsaved changes. Save them?",
+          action: (
+            <ToastAction altText="Save changes" onClick={() => saveLayout()}>Save</ToastAction>
+          ),
+          duration: Infinity,
+        })
         return `Task was moved over position ${taskPosition + 1} of ${
           tasksInColumn.length
         } in column ${column?.title}`;
