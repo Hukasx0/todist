@@ -151,14 +151,7 @@ export function KanbanBoard() {
             taskPosition + 1
           } of ${tasksInColumn.length}`;
         }
-        toast({
-          title: "Unsaved changes",
-          description: "You have unsaved changes. Save them?",
-          action: (
-            <ToastAction altText="Save changes" onClick={() => saveLayout()}>Save</ToastAction>
-          ),
-          duration: Infinity,
-        })
+        saveLayout();
         return `Task was moved over position ${taskPosition + 1} of ${
           tasksInColumn.length
         } in column ${column?.title}`;
@@ -188,14 +181,7 @@ export function KanbanBoard() {
           over.id,
           over.data.current.task.columnId
         );
-        toast({
-          title: "Unsaved changes",
-          description: "You have unsaved changes. Save them?",
-          action: (
-            <ToastAction altText="Save changes" onClick={() => saveLayout()}>Save</ToastAction>
-          ),
-          duration: Infinity,
-        })
+        saveLayout();
         if (over.data.current.task.columnId !== pickedUpTaskColumn.current) {
           return `Task was dropped into column ${column?.title} in position ${
             taskPosition + 1

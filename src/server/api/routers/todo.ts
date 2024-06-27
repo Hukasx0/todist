@@ -14,12 +14,25 @@ export const todoRouter = createTRPCRouter({
     const maxPosition = await ctx.db.query.todos.findFirst({
       orderBy: (todos, { desc }) => desc(todos.position),
     });
-     await ctx.db.insert(todos).values({
-      columnId: input.columnId,
-      content: input.content,
-      userId: ctx.session.user.id,
-      position: maxPosition ? maxPosition.position + 1 : 0,
-     }) 
+    if (maxPosition && maxPosition.position >= 50) {
+      throw new Error("You cannot have more than 50 tasks");
+    } 
+    else if (maxPosition) {
+      await ctx.db.insert(todos).values({
+        columnId: input.columnId,
+        content: input.content,
+        userId: ctx.session.user.id,
+        position: maxPosition.position + 1,
+      });
+    }
+    else {
+      await ctx.db.insert(todos).values({
+        columnId: input.columnId,
+        content: input.content,
+        userId: ctx.session.user.id,
+        position: 0,
+      });
+    }
   }),
 
   updateLayout: protectedProcedure
